@@ -147,6 +147,7 @@ public class Window extends JFrame implements KeyListener
 			bg = ImageIO.read(new File("space.jpg"));
 			lazer = ImageIO.read(new File("lazer.png"));
 			asteroid = ImageIO.read(new File("asteroid.png"));
+            missile = ImageIO.read(new File("missile.png"));
             presizew = 188 * wscale;
             presizeh = 91 * hscale;
             sizew = (int) presizew;
