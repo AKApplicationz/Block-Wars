@@ -15,7 +15,7 @@ public class Main
 		int width = (int) prew;
 		int height = (int) preh;
 		Window win = new Window();
-		win.init(width, height);
+		win.init(width, height, wscale, hscale);
 	}
 
 	static void getReso()
@@ -39,6 +39,5 @@ public class Main
         {
         	hscale = sheight/1440;
         }
- 
     }
 }

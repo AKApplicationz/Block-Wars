@@ -96,7 +96,8 @@ public class Window extends JFrame implements KeyListener
 	int y;
 	int height;
 	int width;
-
+    double wscale;
+    double hscale;
 
 	Timer timer = new Timer(10, new ActionListener()
 	{
@@ -109,7 +110,7 @@ public class Window extends JFrame implements KeyListener
 		}
 	});
 
-	public void init(int p_width, int p_height)
+	public void init(int p_width, int p_height, double p_wscale, double p_hscale)
     {
         setTitle("Freeza Chess");
         setSize(p_width, p_height);
@@ -119,6 +120,8 @@ public class Window extends JFrame implements KeyListener
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLayout(null);
         setVisible(true);
+        wscale = p_wscale;
+        hscale = p_hscale;
         addKeyListener(this);
         loadImages();
         timer.start();
@@ -128,16 +131,30 @@ public class Window extends JFrame implements KeyListener
     {
 	    try
 		{
+            double presizew;
+            double presizeh;
+            int sizew;
+            int sizeh;
 			ship = ImageIO.read(new File("redship.png"));
 			bg = ImageIO.read(new File("space.jpg"));
 			lazer = ImageIO.read(new File("lazer.png"));
 			asteroid = ImageIO.read(new File("asteroid.png"));
+            presizew = 188 * wscale;
+            presizeh = 91 * hscale;
+            sizew = (int) presizew;
+            sizeh = (int) presizeh;
+            ship = ship.getScaledInstance(sizew, sizeh, Image.SCALE_DEFAULT);
 		}
 		catch(IOException ex)
 		{
 
 		}
     }
+    //double prew = 1500 * wscale;
+    //double preh = 1125 * hscale;
+    //int width = (int) prew;
+    //int height = (int) preh;
+
     // asteroid = 121 121
     // laser = 87 28
     // ship = 188 x 91
