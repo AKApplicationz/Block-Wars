@@ -226,7 +226,6 @@ public class Window extends JFrame implements KeyListener
     					for(int i = 0; i < lazerList.size(); i++)
     					{
     						lazerList.get(i).x = lazerList.get(i).x + lazerSpeed;
-    						
     						for(int j = 0; j < asteroidList.size(); j++)
     						{
     							if(lazerList.get(i).x + 87 > asteroidList.get(j).x && lazerList.get(i).x + 87 < asteroidList.get(j).x + 121 && lazerList.get(i).y + 28 > asteroidList.get(j).y && lazerList.get(i).y + 28 < asteroidList.get(j).y + 121)
@@ -250,6 +249,13 @@ public class Window extends JFrame implements KeyListener
 
     					}
     				}
+                    if(!missileList.isEmpty())
+                    {
+                        for(int i = 0; i < missileList.size(); i++)
+                        {
+                            missileList.get(i).x = missileList.get(i).x + lazerSpeed;
+                        }
+                    }
     				if(!asteroidList.isEmpty())
     				{
     					for(int i = 0; i < asteroidList.size(); i++)
