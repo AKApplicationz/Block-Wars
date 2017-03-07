@@ -153,6 +153,26 @@ public class Window extends JFrame implements KeyListener
             sizew = (int) presizew;
             sizeh = (int) presizeh;
             ship = ship.getScaledInstance(sizew, sizeh, Image.SCALE_DEFAULT);
+            presizew = 1920 * wscale;
+            presizeh = 1200 * hscale;
+            sizew = (int) presizew;
+            sizeh = (int) presizeh;
+            bg = bg.getScaledInstance(sizew, sizeh, Image.SCALE_DEFAULT);
+            presizew = 87 * wscale;
+            presizeh = 28 * hscale;
+            sizew = (int) presizew;
+            sizeh = (int) presizeh;
+            lazer = lazer.getScaledInstance(sizew, sizeh, Image.SCALE_DEFAULT);
+            presizew = 121 * wscale;
+            presizeh = 121 * hscale;
+            sizew = (int) presizew;
+            sizeh = (int) presizeh;
+            asteroid = asteroid.getScaledInstance(sizew, sizeh, Image.SCALE_DEFAULT);
+            presizew = 140 * wscale;
+            presizeh = 37 * hscale;
+            sizew = (int) presizew;
+            sizeh = (int) presizeh;
+            missile = missile.getScaledInstance(sizew, sizeh, Image.SCALE_DEFAULT);
 		}
 		catch(IOException ex)
 		{
@@ -164,6 +184,7 @@ public class Window extends JFrame implements KeyListener
     //int width = (int) prew;
     //int height = (int) preh;
 
+    // missile = 
     // asteroid = 121 121
     // laser = 87 28
     // ship = 188 x 91
@@ -253,7 +274,6 @@ public class Window extends JFrame implements KeyListener
     							asteroidList.get(i).x = asteroidList.get(i).x - asteroidSpeed;
     							asteroidList.get(i).y = asteroidList.get(i).y + asteroidSpeed;
     						}
-    						
     						if(asteroidList.get(i).x > width - 122)
     						{
     							asteroidList.get(i).direction.setCharAt(1, 'l');
