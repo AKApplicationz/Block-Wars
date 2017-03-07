@@ -41,9 +41,14 @@ public class Window extends JFrame implements KeyListener
 			System.out.println("ASTEROID");
 			asteroidList.add(new Asteroid(r.nextInt((width/2))+(width/2),r.nextInt(height - 125), new StringBuilder(randomString(r.nextInt(4)+1))));
 		}
+        if(e.getKeyCode() == KeyEvent.VK_SHIFT)
+        {
+            System.out.println("ASTEROID2");
+            asteroidList.add(new Asteroid(r.nextInt((width/2))+(width/2),r.nextInt(height - 125), new StringBuilder(randomString(r.nextInt(4)+1))));
+        }
 	}
 	//randomString(r.nextInt(4 + 1)
-	StringBuilder randomString(int p_int)
+	StringBuilder randomString(double p_int)
 	{
 		if(p_int == 1)
 		{
@@ -79,18 +84,19 @@ public class Window extends JFrame implements KeyListener
 	ArrayList<Lazer> lazerList = new ArrayList<Lazer>();
 	ArrayList<Asteroid> asteroidList = new ArrayList<Asteroid>();
 	
-	int asteroidSpeed = 2;
-	int lazerSpeed = 10;
+	double asteroidSpeed = 2;
+	double lazerSpeed = 10;
 	Image ship;
 	Image asteroid;
 	JPanel panel;
 	Image lazer;
 	Image bg;
 	Graphics g;
-	int x;
-	int y;
-	int height;
-	int width;
+	double x;
+	double y;
+	double height;
+	double width;
+
 
 	Timer timer = new Timer(10, new ActionListener()
 	{
@@ -103,7 +109,7 @@ public class Window extends JFrame implements KeyListener
 		}
 	});
 
-	public void init(int p_width, int p_height)
+	public void init(double p_width, double p_height)
     {
         setTitle("Freeza Chess");
         setSize(p_width, p_height);
@@ -237,6 +243,9 @@ public class Window extends JFrame implements KeyListener
     		}
     	};
     }
+
+
+
     class Lazer
     {
     	int x;
