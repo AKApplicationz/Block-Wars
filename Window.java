@@ -36,6 +36,12 @@ public class Window extends JFrame implements KeyListener
 			System.out.println(asteroidList.size());
 			lazerList.add(new Lazer(x+175, y+30));
 		}
+        if(e.getKeyCode() == KeyEvent.VK_F)
+        { 
+            System.out.println(lazerList.size());
+            System.out.println(asteroidList.size());
+            missileList.add(new Missile(x+175, y+30));
+        }
 		if(e.getKeyCode() == KeyEvent.VK_NUMPAD4)
 		{
 			System.out.println("ASTEROID");
@@ -83,11 +89,13 @@ public class Window extends JFrame implements KeyListener
 
 	ArrayList<Lazer> lazerList = new ArrayList<Lazer>();
 	ArrayList<Asteroid> asteroidList = new ArrayList<Asteroid>();
-	
+	ArrayList<Missile>  missileList = new ArrayList<Missile>();
+
 	int asteroidSpeed = 2;
 	int lazerSpeed = 10;
 	Image ship;
 	Image asteroid;
+    Image missile;
 	JPanel panel;
 	Image lazer;
 	Image bg;
@@ -132,6 +140,7 @@ public class Window extends JFrame implements KeyListener
 			bg = ImageIO.read(new File("space.jpg"));
 			lazer = ImageIO.read(new File("lazer.png"));
 			asteroid = ImageIO.read(new File("asteroid.png"));
+            missile = ImageIO.read(new File("missile.png"));
 		}
 		catch(IOException ex)
 		{
@@ -166,7 +175,14 @@ public class Window extends JFrame implements KeyListener
     						g.drawImage(asteroid, asteroidList.get(i).x, asteroidList.get(i).y, null);
     					}
     				}
+                    if(!missileList.isEmpty())
+                    {
+                        for(int i = 0; i < missileList.size(); i++)
+                        {
+                            g.drawImage(missile, missileList.get(i).x, missileList.get(i).y, null);
+                        }
 
+                    }
     				if(!lazerList.isEmpty())
     				{
     					for(int i = 0; i < lazerList.size(); i++)
@@ -255,6 +271,16 @@ public class Window extends JFrame implements KeyListener
     		x = p_x;
     		y = p_y;
     	}
+    }
+    class Missile
+    {
+        int x;
+        int y;
+        public Missile(int p_x, int p_y)
+        {
+            x = p_x;
+            y = p_y;
+        }
     }
     class Asteroid
     {
