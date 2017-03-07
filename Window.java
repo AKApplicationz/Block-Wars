@@ -84,18 +84,18 @@ public class Window extends JFrame implements KeyListener
 	ArrayList<Lazer> lazerList = new ArrayList<Lazer>();
 	ArrayList<Asteroid> asteroidList = new ArrayList<Asteroid>();
 	
-	double asteroidSpeed = 2;
-	double lazerSpeed = 10;
+	int asteroidSpeed = 2;
+	int lazerSpeed = 10;
 	Image ship;
 	Image asteroid;
 	JPanel panel;
 	Image lazer;
 	Image bg;
 	Graphics g;
-	double x;
-	double y;
-	double height;
-	double width;
+	int x;
+	int y;
+	int height;
+	int width;
 
 
 	Timer timer = new Timer(10, new ActionListener()
@@ -109,7 +109,7 @@ public class Window extends JFrame implements KeyListener
 		}
 	});
 
-	public void init(double p_width, double p_height)
+	public void init(int p_width, int p_height)
     {
         setTitle("Freeza Chess");
         setSize(p_width, p_height);
