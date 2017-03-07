@@ -254,6 +254,27 @@ public class Window extends JFrame implements KeyListener
                         for(int i = 0; i < missileList.size(); i++)
                         {
                             missileList.get(i).x = missileList.get(i).x + lazerSpeed;
+                            for(int j = 0; j < asteroidList.size(); j++)
+                            {
+                                if(missileList.get(i).x + 87 > asteroidList.get(j).x && missileList.get(i).x + 87 < asteroidList.get(j).x + 121 && missileList.get(i).y + 28 > asteroidList.get(j).y && missileList.get(i).y + 28 < asteroidList.get(j).y + 121)
+                                {
+                                    missileList.remove(i);
+                                    asteroidList.remove(j);
+                                    break;
+                                }
+                            }
+                            if(i == missileList.size())
+                            {
+
+                            }
+                            else if(i < missileList.size())
+                            {
+                                if(missileList.get(i).x > width - 50)
+                                {
+                                    missileList.remove(i);
+                                }
+                            }
+
                         }
                     }
     				if(!asteroidList.isEmpty())
